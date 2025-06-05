@@ -47,7 +47,7 @@ def ui(
     config: Optional[str] = None,
     rebuild_docker: Optional[bool] = False,
     ssl_certfile: Optional[str] = None,
-    ssl_keyfile: Optional[str] = None
+    ssl_keyfile: Optional[str] = None,
 ):
     """
     Run Magentic-UI.
@@ -149,7 +149,7 @@ def ui(
             else None,
             env_file=env_file_path,
             ssl_certfile=ssl_certfile,
-            ssl_keyfile=ssl_keyfile
+            ssl_keyfile=ssl_keyfile,
         )
     else:
         uvicorn.run(
@@ -161,7 +161,7 @@ def ui(
             reload_excludes=["**/alembic/*", "**/alembic.ini", "**/versions/*"]
             if reload
             else None,
-            env_file=env_file_path
+            env_file=env_file_path,
         )
 
 
