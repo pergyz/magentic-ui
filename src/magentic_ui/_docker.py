@@ -15,9 +15,7 @@ PYTHON_BUILD_CONTEXT = "magentic-ui-python-env"
 
 def get_docker_client() -> docker.DockerClient:
     if platform.system() == "Windows":
-        client = docker.from_env()
-        client.api.base_url = "npipe:////./pipe/dockerDesktopLinuxEngine"
-        return client
+        os.environ["DOCKER_HOST"] = "npipe:////./pipe/dockerDesktopLinuxEngine"
     return docker.from_env()
 
 
